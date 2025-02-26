@@ -65,3 +65,56 @@ int main() {
     s.displayStudent();
     return 0;
 }
+//////////////////////////////////////////////////////
+
+
+//**********Polymorphism******************//
+#include <iostream>
+using namespace std;
+
+// Base class
+class Animal {
+public:
+    // Virtual function to enable runtime polymorphism
+    virtual void speak() const {
+        cout << "Animal makes a sound." << endl;
+    }
+    
+    // Virtual destructor for safe polymorphic deletion
+    virtual ~Animal() {}
+};
+
+// Derived class: Dog
+class Dog : public Animal {
+public:
+    // Override speak() method
+    void speak() const override {
+        cout << "Dog barks: Woof!" << endl;
+    }
+};
+
+// Derived class: Cat
+class Cat : public Animal {
+public:
+    // Override speak() method
+    void speak() const override {
+        cout << "Cat meows: Meow!" << endl;
+    }
+};
+
+int main() {
+    // Create objects of derived classes
+    Animal* animal1 = new Dog();
+    Animal* animal2 = new Cat();
+
+    // Call speak() on each pointer.
+    // Due to polymorphism, the correct overridden method is called.
+    animal1->speak();  // Outputs: Dog barks: Woof!
+    animal2->speak();  // Outputs: Cat meows: Meow!
+
+    // Clean up
+    delete animal1;
+    delete animal2;
+
+    return 0;
+}
