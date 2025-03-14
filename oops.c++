@@ -118,3 +118,63 @@ int main() {
 
     return 0;
 }
+//////////////////////////////////////////////////////////////////////
+
+Inheritance Example
+
+#include <iostream>
+using namespace std;
+
+// Base class (Parent)
+class Vehicle {
+public:
+    int wheels;
+    string brand;
+
+    void showInfo() {
+        cout << "Brand: " << brand << ", Wheels: " << wheels << endl;
+    }
+};
+
+// Derived class (Child) - Car
+class Car : public Vehicle {
+public:
+    int seats;
+
+    void carInfo() {
+        cout << "Car has " << seats << " seats." << endl;
+    }
+};
+
+// Derived class (Child) - Bike
+class Bike : public Vehicle {
+public:
+    bool hasGear;
+
+    void bikeInfo() {
+        cout << "Bike has gear: " << (hasGear ? "Yes" : "No") << endl;
+    }
+};
+
+int main() {
+    // Creating Car object
+    Car myCar;
+    myCar.brand = "Toyota";
+    myCar.wheels = 4;
+    myCar.seats = 5;
+    myCar.showInfo();
+    myCar.carInfo();
+
+    cout << "--------------------" << endl;
+
+    // Creating Bike object
+    Bike myBike;
+    myBike.brand = "Yamaha";
+    myBike.wheels = 2;
+    myBike.hasGear = true;
+    myBike.showInfo();
+    myBike.bikeInfo();
+
+    return 0;
+}
+////////////////////////////////////////////////////
