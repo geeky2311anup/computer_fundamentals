@@ -1,0 +1,84 @@
+
+Some Key features in C
+
+1️⃣ Fast Execution
+C is close to hardware and does not have unnecessary overhead, making it very fast.
+Example:
+c
+Copy
+Edit
+#include <stdio.h>
+int main() {
+    for (int i = 0; i < 1000000; i++); // Loop runs very fast in C
+    printf("Fast execution!\n");
+    return 0;
+}
+2️⃣ Low-Level Memory Access
+C allows direct interaction with memory using pointers.
+Example:
+c
+Copy
+Edit
+#include <stdio.h>
+int main() {
+    int x = 10;
+    int *ptr = &x; // Pointer stores memory address
+    printf("Value of x: %d, Address of x: %p\n", *ptr, ptr);
+    return 0;
+}
+3️⃣ Portable (Runs on Different Platforms)
+C programs can be compiled and run on different operating systems with minimal changes.
+Example:
+c
+Copy
+Edit
+#include <stdio.h>
+int main() {
+    printf("This code runs on Windows, Linux, and Mac!\n");
+    return 0;
+}
+4️⃣ Simple and Efficient
+C has a small set of keywords and provides direct control over system resources.
+Example:
+c
+Copy
+Edit
+#include <stdio.h>
+int main() {
+    printf("Hello, World! This is simple and efficient.\n");
+    return 0;
+}
+5️⃣ Supports Dynamic Memory Allocation
+C provides functions like malloc() and free() for dynamic memory allocation.
+Example:
+c
+Copy
+Edit
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int *arr = (int*) malloc(5 * sizeof(int)); // Allocating memory
+    if (arr) {
+        printf("Memory allocated successfully!\n");
+        free(arr); // Freeing memory
+    }
+    return 0;
+}
+6️⃣ Uses Functions and Pointers Effectively
+C supports modular programming using functions and pointers.
+Example:
+c
+Copy
+Edit
+#include <stdio.h>
+// Function with pointer argument
+void updateValue(int *p) {
+    *p = 20;
+}
+
+int main() {
+    int x = 10;
+    updateValue(&x); // Passing address of x
+    printf("Updated value: %d\n", x);
+    return 0;
+}
