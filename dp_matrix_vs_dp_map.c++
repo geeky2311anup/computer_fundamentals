@@ -41,3 +41,94 @@ If sum is large (≥ 10^5) → Use DP with a map (unordered_map<int, unordered_m
 
 If sum is very large (≥ 10^9) → Matrix is impossible, map is the only option.
 
+
+
+////////////////////////////////////////////////////////////////////////
+
+Why Think Recursively First?
+Natural Problem Breakdown
+
+Many DP problems have an optimal substructure, meaning the solution depends on smaller subproblems.
+
+Thinking recursively helps break the problem down into these smaller, intuitive cases.
+
+Identifying States
+
+Recursion helps us define state variables like i (index) and sum (current sum).
+
+This makes it easier to design a DP table for bottom-up.
+
+Understanding Choices (Transition Formula)
+
+A recursive approach forces you to make choices:
+
+Include the current element? → solve(i-1, sum - arr[i])
+
+Exclude the current element? → solve(i-1, sum)
+
+These choices directly translate into DP table transitions.
+
+Memoization to Bottom-Up Conversion
+
+A top-down (memoized) solution is just a recursive solution + caching.
+
+Converting memoized recursion to bottom-up DP is straightforward:
+
+Remove recursion.
+
+Fill DP table iteratively.
+
+Example: Subset Sum Problem
+1️⃣ Recursive Approach (Without DP)
+cpp
+Copy
+Edit
+bool subsetSumRecursive(vector<int>& arr, int i, int sum) {
+    if (sum == 0) return true;    // Base case: Target sum achieved
+    if (i == 0) return arr[0] == sum; // Base case: Only one element left
+
+    // Exclude the current element
+    bool exclude = subsetSumRecursive(arr, i - 1, sum);
+
+    // Include the current element (if possible)
+    bool include = (sum >= arr[i]) ? subsetSumRecursive(arr, i - 1, sum - arr[i]) : false;
+
+    return include || exclude;
+}
+2️⃣ Memoization (Top-Down DP)
+cpp
+Copy
+Edit
+vector<vector<int>> dp;
+bool subsetSumMemoized(vector<int>& arr, int i, int sum) {
+    if (sum == 0) return true;
+    if (i == 0) return arr[0] == sum;
+    if (dp[i][sum] != -1) return dp[i][sum];  // Memoization
+
+    bool exclude = subsetSumMemoized(arr, i - 1, sum);
+    bool include = (sum >= arr[i]) ? subsetSumMemoized(arr, i - 1, sum - arr[i]) : false;
+
+    return dp[i][sum] = include || exclude;
+}
+3️⃣ Bottom-Up DP (Iterative)
+cpp
+Copy
+Edit
+bool subsetSumBottomUp(vector<int>& arr, int target) {
+    int n = arr.size();
+    vector<vector<bool>> dp(n + 1, vector<bool>(target + 1, false));
+
+    // Base case: Sum 0 is always achievable with an empty subset
+    for (int i = 0; i <= n; i++) dp[i][0] = true;
+
+    for (int i = 1; i <= n; i++) {
+        for (int sum = 1; sum <= target; sum++) {
+            if (sum >= arr[i - 1])
+                dp[i][sum] = dp[i - 1][sum] || dp[i - 1][sum - arr[i - 1]];
+            else
+                dp[i][sum] = dp[i - 1][sum];
+        }
+    }
+
+    return dp[n][target];
+}
