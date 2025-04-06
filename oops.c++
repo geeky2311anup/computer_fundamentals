@@ -178,3 +178,23 @@ int main() {
     return 0;
 }
 ////////////////////////////////////////////////////
+
+Abstraction
+Definition: Hiding complex implementation details and showing only the essential features of the object.
+
+Purpose: To reduce complexity and allow the programmer to focus on interactions rather than inner workings.
+
+Example:
+
+
+class Shape {
+public:
+    virtual void draw() = 0; // pure virtual function (abstraction)
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        cout << "Drawing Circle\n";
+    }
+};
