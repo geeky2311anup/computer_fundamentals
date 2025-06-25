@@ -132,3 +132,85 @@ bool subsetSumBottomUp(vector<int>& arr, int target) {
 
     return dp[n][target];
 }
+
+graph
+Here’s a clear and simple introduction to Graphs in data structures and algorithms:
+
+
+---
+
+📌 What is a Graph?
+
+A graph is a data structure used to represent a set of objects (called nodes or vertices) and the connections between them (called edges).
+
+Graphs are widely used in real-life scenarios like:
+
+Social networks (users = nodes, friendships = edges)
+
+Maps (cities = nodes, roads = edges)
+
+Internet (web pages = nodes, links = edges)
+
+
+
+---
+
+🔗 Basic Terminology
+
+Term	Meaning
+
+Vertex (plural: vertices)	A point or node in the graph
+Edge	A line connecting two vertices
+Adjacent vertices	Vertices connected directly by an edge
+Degree of a vertex	Number of edges connected to it
+Path	A sequence of vertices where each pair is connected by an edge
+Cycle	A path that starts and ends at the same vertex
+
+
+
+---
+
+🧭 Types of Graphs
+
+1. Directed Graph (Digraph): Edges have a direction (A → B)
+
+
+2. Undirected Graph: Edges have no direction (A — B)
+
+
+3. Weighted Graph: Each edge has a weight or cost (like distance or time)
+
+
+4. Unweighted Graph: Edges have no weight
+
+
+5. Cyclic vs Acyclic: A cyclic graph has at least one cycle; an acyclic graph does not
+
+
+6. Connected Graph: There is a path between every pair of vertices (only in undirected)
+
+
+7. Disconnected Graph: Some vertices are not connected
+
+
+
+
+---
+
+📋 Graph Representations
+
+1. Adjacency Matrix:
+
+2D array (V x V) where matrix[i][j] = 1 means there is an edge from vertex i to j
+
+Space: O(V²)
+
+
+
+2. Adjacency List:
+
+Array of lists. Each index stores a
+
+
+
+
