@@ -82,3 +82,5 @@ int main() {
     printf("Updated value: %d\n", x);
     return 0;
 }
+
+they are mmostly used in competitive programming
